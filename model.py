@@ -17,7 +17,7 @@ def load_ball_bboxes(label_path):
         for line in file:
             parts = line.strip().split()
             class_id = int(parts[0])
-            if class_id == 1:  # ball
+            if class_id == 1:
                 x, y, w, h = map(float, parts[1:])
                 ball_bboxes.append((x, y, w, h))
     return ball_bboxes
@@ -34,7 +34,7 @@ def get_random_point_in_bbox(x, y, w, h):
 
 
 def compute_crop_size(y_norm, base_crop=200):
-    factor = 0.5 + y_norm  # scale crop size: more at bottom
+    factor = 0.5 + y_norm
     return int(base_crop * factor)
 
 
@@ -68,7 +68,6 @@ def save_new_label(crop_info, point_x, point_y, output_label_path, orig_w, orig_
     rel_x = (abs_x - crop_info['x1']) / crop_w
     rel_y = (abs_y - crop_info['y1']) / crop_h
 
-    # Small dummy box around the point
     box_size = 20
     new_w = box_size / crop_w
     new_h = box_size / crop_h
