@@ -38,7 +38,7 @@ python model.py
 To run the manual point annotation tool:
 
 ```bash
-python manual_annotation.py
+streamlit run manual_annotation.py
 ```
 
 
